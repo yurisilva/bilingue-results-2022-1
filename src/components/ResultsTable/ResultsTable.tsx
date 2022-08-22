@@ -1,4 +1,4 @@
-import { formatMembersForDisplay } from "../../helpers";
+import { formatMembersForDisplay, sortGroupsByScore } from "../../helpers";
 
 export type Person = {
   name: string;
@@ -12,6 +12,8 @@ export type ResultsTableProps = {
 };
 
 const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
+  let sortedGroups: ResultsTableProps[] = sortGroupsByScore(data);
+
   return (
     <>
       <div data-testid={"results-table"}>
@@ -20,7 +22,7 @@ const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
         <p>Points</p>
         <p>Members</p>
         {data &&
-          data.map((group, index) => (
+          sortedGroups.map((group, index) => (
             <div data-testid={"results-table-row"} key={index}>
               <p>index</p>
               <p>{group.name}</p>

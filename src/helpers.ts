@@ -1,4 +1,7 @@
-import { Person } from "./components/ResultsTable/ResultsTable";
+import {
+  Person,
+  ResultsTableProps,
+} from "./components/ResultsTable/ResultsTable";
 
 export const formatMembersForDisplay = ({
   members,
@@ -16,4 +19,13 @@ export const formatMembersForDisplay = ({
   });
 
   return sortedString;
+};
+
+export const sortGroupsByScore = (
+  data: ResultsTableProps[]
+): ResultsTableProps[] => {
+  if (!data) return [] as ResultsTableProps[];
+
+  let sortedGroups = data.sort((a, b) => (a.points < b.points ? 1 : -1));
+  return sortedGroups;
 };

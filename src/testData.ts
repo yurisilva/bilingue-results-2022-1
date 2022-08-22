@@ -2,7 +2,7 @@ import { ResultsTableProps } from "./components/ResultsTable/ResultsTable";
 
 export const exampleDataTwoTeams: ResultsTableProps[] = [
   {
-    name: "team name",
+    name: "team loser",
     points: 200,
     members: [
       {
@@ -16,12 +16,20 @@ export const exampleDataTwoTeams: ResultsTableProps[] = [
     ],
   },
   {
-    name: "team name",
-    points: 200,
+    name: "team winner",
+    points: 400,
     members: [
       {
         name: "One",
         points: 120,
+      },
+      {
+        name: "Three",
+        points: 50,
+      },
+      {
+        name: "Four",
+        points: 50,
       },
       {
         name: "Two",

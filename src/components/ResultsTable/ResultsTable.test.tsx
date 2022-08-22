@@ -63,15 +63,21 @@ describe("<ResultsTable>", () => {
       renderComponent(exampleDataTwoTeams);
     });
 
-    it("displays the highest scoring team first and lowest scoring team last", () => {
+    it("displays all rows", () => {
       const rows = screen.getAllByTestId("results-table-row");
       console.log(rows[0]);
 
       expect(rows).toHaveLength(2);
+    });
 
-      //todo verify groups display order
-      const teamRowOne = rows[0];
-      const teamRowTwo = rows[1];
+    it("sorts teams by score, higher to lower", () => {
+      const rows = screen.getAllByTestId("results-table-row");
+
+      expect(rows[0]).toHaveTextContent("1");
+      expect(rows[0]).toHaveTextContent("team winner");
+
+      expect(rows[1]).toHaveTextContent("2");
+      expect(rows[1]).toHaveTextContent("team loser");
     });
   });
 });
