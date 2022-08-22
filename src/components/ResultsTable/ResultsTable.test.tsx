@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ResultsTable, { ResultsTableProps } from "./ResultsTable";
+import { exampleTeamData, exampleDataTwoTeams } from "../../testData";
 
 describe("<ResultsTable>", () => {
   let component;
 
-  const renderComponent = (data?: ResultsTableProps) => {
+  const renderComponent = (data?: ResultsTableProps[]) => {
     if (component) component.unmount();
     component = render(<ResultsTable data={data ?? undefined} />);
   };
@@ -32,23 +33,8 @@ describe("<ResultsTable>", () => {
   });
 
   describe("when there is one entry to show", () => {
-    const teamData: ResultsTableProps = {
-      name: "team name",
-      points: 200,
-      members: [
-        {
-          name: "One",
-          points: 120,
-        },
-        {
-          name: "Two",
-          points: 80,
-        },
-      ],
-    };
-
     beforeEach(() => {
-      renderComponent(teamData);
+      renderComponent([exampleTeamData]);
     });
 
     it("displays the team rank and name", () => {
@@ -69,6 +55,23 @@ describe("<ResultsTable>", () => {
       const teamScore = screen.getByText("One (120), Two (80)");
 
       expect(teamScore).toBeInTheDocument();
+    });
+  });
+
+  describe("when there is more than one entry to show", () => {
+    beforeEach(() => {
+      renderComponent(exampleDataTwoTeams);
+    });
+
+    it("displays the highest scoring team first and lowest scoring team last", () => {
+      const rows = screen.getAllByTestId("results-table-row");
+      console.log(rows[0]);
+
+      expect(rows).toHaveLength(2);
+
+      //todo verify groups display order
+      const teamRowOne = rows[0];
+      const teamRowTwo = rows[1];
     });
   });
 });

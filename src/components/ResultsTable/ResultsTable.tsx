@@ -11,7 +11,7 @@ export type ResultsTableProps = {
   members: Person[];
 };
 
-const ResultsTable = ({ data: ResultsTableProps }) => {
+const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
   return (
     <>
       <div data-testid={"results-table"}>
@@ -19,20 +19,21 @@ const ResultsTable = ({ data: ResultsTableProps }) => {
         <p>Team</p>
         <p>Points</p>
         <p>Members</p>
-        {ResultsTableProps && (
-          <>
-            <p>1</p>
-            <p>{ResultsTableProps.name}</p>
-            <p>{ResultsTableProps.points}</p>
-            <p>
-              {ResultsTableProps.members
-                ? formatMembersForDisplay({
-                    members: ResultsTableProps.members,
-                  })
-                : undefined}
-            </p>
-          </>
-        )}
+        {data &&
+          data.map((group, index) => (
+            <div data-testid={"results-table-row"} key={index}>
+              <p>index</p>
+              <p>{group.name}</p>
+              <p>{group.points}</p>
+              <p>
+                {group.members
+                  ? formatMembersForDisplay({
+                      members: group.members,
+                    })
+                  : undefined}
+              </p>
+            </div>
+          ))}
       </div>
     </>
   );
