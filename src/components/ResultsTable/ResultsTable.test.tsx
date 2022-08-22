@@ -2,13 +2,14 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ResultsTable, { ResultsTableProps } from "./ResultsTable";
 import { exampleTeamData, exampleDataTwoTeams } from "../../testData";
+import React from "react";
 
 describe("<ResultsTable>", () => {
   let component;
 
   const renderComponent = (data?: ResultsTableProps[]) => {
     if (component) component.unmount();
-    component = render(<ResultsTable data={data ?? undefined} />);
+    component = render(<ResultsTable data={data ?? []} />);
   };
 
   beforeEach(() => {
@@ -65,8 +66,6 @@ describe("<ResultsTable>", () => {
 
     it("displays all rows", () => {
       const rows = screen.getAllByTestId("results-table-row");
-      console.log(rows[0]);
-
       expect(rows).toHaveLength(2);
     });
 

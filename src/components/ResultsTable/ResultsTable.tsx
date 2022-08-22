@@ -1,3 +1,4 @@
+import React from "react";
 import { formatMembersForDisplay, sortGroupsByScore } from "../../helpers";
 
 export type Person = {
@@ -21,21 +22,20 @@ const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
         <p>Team</p>
         <p>Points</p>
         <p>Members</p>
-        {data &&
-          sortedGroups.map((group, index) => (
-            <div data-testid={"results-table-row"} key={index}>
-              <p>index</p>
-              <p>{group.name}</p>
-              <p>{group.points}</p>
-              <p>
-                {group.members
-                  ? formatMembersForDisplay({
-                      members: group.members,
-                    })
-                  : undefined}
-              </p>
-            </div>
-          ))}
+        {sortedGroups.map((group, index) => (
+          <div data-testid={"results-table-row"} key={index}>
+            <p>{index + 1}</p>
+            <p>{group.name}</p>
+            <p>{group.points}</p>
+            <p>
+              {group.members
+                ? formatMembersForDisplay({
+                    members: group.members,
+                  })
+                : undefined}
+            </p>
+          </div>
+        ))}
       </div>
     </>
   );

@@ -1,7 +1,10 @@
-import './styles/App.css';
+import "./styles/App.css";
+import ResultsTable from "./components/ResultsTable/ResultsTable";
+import { exampleDataTwoTeams } from "./testData";
+import React from "react";
 
-function App() {
-  return<><p>Oops</p></>
-}
+const App = () => {
+  return <ResultsTable data={exampleDataTwoTeams} />;
+};
 
 export default App;

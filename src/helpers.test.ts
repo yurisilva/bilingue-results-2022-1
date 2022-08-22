@@ -20,11 +20,6 @@ describe("the formatMembersForDisplay", () => {
 });
 
 describe("the sortGroupsByScore", () => {
-  it("given undefined returns an empty array", () => {
-    const result = sortGroupsByScore(undefined);
-    expect(result).toEqual([]);
-  });
-
   it("given an empty array returns an empty array", () => {
     const result = sortGroupsByScore([] as ResultsTableProps[]);
     expect(result).toEqual([]);
