@@ -1,4 +1,3 @@
-import "./styles/App.css";
 import ResultsTable from "./components/ResultsTable/ResultsTable";
 import { exampleDataTwoTeams } from "./testData";
 import React from "react";
