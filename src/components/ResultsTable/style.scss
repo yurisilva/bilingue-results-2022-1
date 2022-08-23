@@ -5,47 +5,65 @@ body {
 
 .results-table {
   background-color: aliceblue;
-  max-width: 800px;
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
 
   &-header {
     display: flex;
+    padding: 10px 0px 30px 10px;
+
+    &-item {
+      margin-right: 10px;
+    }
 
     :nth-child(1) {
       background-color: blue;
+      width: 40px;
     }
 
     :nth-child(2) {
       background-color: red;
+      width: 300px;
     }
 
     :nth-child(3) {
       background-color: green;
+      width: 60px;
     }
 
     :nth-child(4) {
       background-color: pink;
+      width: 300px;
     }
   }
 
   &-row {
     display: flex;
 
+    &-item {
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
     :nth-child(1) {
       background-color: blue;
+      width: 40px;
     }
 
     :nth-child(2) {
       background-color: red;
+      width: 300px;
     }
 
     :nth-child(3) {
       background-color: green;
+      width: 60px;
     }
 
     :nth-child(4) {
       background-color: pink;
+      width: 300px;
     }
   }
 }

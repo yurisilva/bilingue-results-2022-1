@@ -20,10 +20,10 @@ const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
     <>
       <div data-testid={"results-table"} className={"results-table"}>
         <div className={"results-table-header"}>
-          <div>Rank</div>
-          <div>Team</div>
-          <div>Points</div>
-          <div>Members</div>
+          <div className={"results-table-header-item"}>Rank</div>
+          <div className={"results-table-header-item"}>Team</div>
+          <div className={"results-table-header-item"}>Points</div>
+          <div className={"results-table-header-item"}>Members</div>
         </div>
         {sortedGroups.map((group, index) => (
           <div
@@ -31,16 +31,16 @@ const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
             className={"results-table-row"}
             key={index}
           >
-            <p>{index + 1}</p>
-            <p>{group.name}</p>
-            <p>{group.points}</p>
-            <p>
+            <div className={"results-table-row-item"}>{index + 1}</div>
+            <div className={"results-table-row-item"}>{group.name}</div>
+            <div className={"results-table-row-item"}>{group.points}</div>
+            <div className={"results-table-row-item"}>
               {group.members
                 ? formatMembersForDisplay({
                     members: group.members,
                   })
                 : undefined}
-            </p>
+            </div>
           </div>
         ))}
       </div>
