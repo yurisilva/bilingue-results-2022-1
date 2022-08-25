@@ -1,7 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ResultsTable, { ResultsTableProps } from "./ResultsTable";
-import { exampleTeamData, exampleDataTwoTeams } from "../../testData";
+import {
+  exampleTeamData,
+  exampleDataTwoTeams,
+  exampleDataFourTeams,
+} from "../../testData";
 import React from "react";
 
 describe("<ResultsTable>", () => {
@@ -52,21 +56,31 @@ describe("<ResultsTable>", () => {
       expect(teamScore).toBeInTheDocument();
     });
 
+    it("displays the team crest before the team name", () => {
+      const teamCrest = screen.getByTestId("team-crest");
+
+      expect(teamCrest).toBeInTheDocument();
+    });
+
     it("displays the team members, with their scores, in sorted from higher to lower", () => {
       const teamScore = screen.getByText("One (120), Two (80)");
+      expect(teamScore).toBeInTheDocument();
+    });
 
+    it("displays the team members, with their scores, in sorted from higher to lower", () => {
+      const teamScore = screen.getByText("One (120), Two (80)");
       expect(teamScore).toBeInTheDocument();
     });
   });
 
   describe("when there is more than one entry to show", () => {
     beforeEach(() => {
-      renderComponent(exampleDataTwoTeams);
+      renderComponent(exampleDataFourTeams);
     });
 
     it("displays all rows", () => {
       const rows = screen.getAllByTestId("results-table-row");
-      expect(rows).toHaveLength(2);
+      expect(rows).toHaveLength(4);
     });
 
     it("sorts teams by score, higher to lower", () => {
@@ -76,7 +90,15 @@ describe("<ResultsTable>", () => {
       expect(rows[0]).toHaveTextContent("team winner");
 
       expect(rows[1]).toHaveTextContent("2");
-      expect(rows[1]).toHaveTextContent("team loser");
+      expect(rows[1]).toHaveTextContent("team two");
+
+      expect(rows[3]).toHaveTextContent("4");
+      expect(rows[3]).toHaveTextContent("team loser");
+    });
+
+    it("does not display the team crest before the team name after the fourth line", () => {
+      const teamCrests = screen.getAllByTestId("team-crest");
+      expect(teamCrests).toHaveLength(3);
     });
   });
 });

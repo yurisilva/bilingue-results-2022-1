@@ -9,6 +9,7 @@ export type Person = {
 
 export type ResultsTableProps = {
   name: string;
+  imageUrl: string;
   points: number;
   members: Person[];
 };
@@ -32,10 +33,22 @@ const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
               className={"results-table-row"}
               key={index}
             >
-              <div className={"results-table-row-item"}>{index + 1}</div>
-              <div className={"results-table-row-item"}>{group.name}</div>
-              <div className={"results-table-row-item"}>{group.points}</div>
-              <div className={"results-table-row-item"}>
+              <div className={"results-table-cell"}>{index + 1}</div>
+              <div className={"results-table-cell"}>
+                {index < 3 && (
+                  <div
+                    className={"results-table-row-crest"}
+                    data-testid={"team-crest"}
+                  >
+                    <img src={group.imageUrl} />
+                  </div>
+                )}
+                <div className={"results-table-cell-team-name"}>
+                  {group.name}
+                </div>
+              </div>
+              <div className={"results-table-cell"}>{group.points}</div>
+              <div className={"results-table-cell"}>
                 {group.members
                   ? formatMembersForDisplay({
                       members: group.members,

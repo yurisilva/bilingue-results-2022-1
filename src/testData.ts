@@ -1,6 +1,8 @@
 export const exampleDataTwoTeams = [
   {
     name: "team loser",
+    imageUrl:
+      "https://nerdhits.com.br/wp-content/uploads/2021/01/goku-dragon-ball-super-1200x900.jpg",
     points: 200,
     members: [
       {
@@ -15,6 +17,8 @@ export const exampleDataTwoTeams = [
   },
   {
     name: "team winner",
+    imageUrl:
+      "https://nerdhits.com.br/wp-content/uploads/2021/01/goku-dragon-ball-super-1200x900.jpg",
     points: 400,
     members: [
       {
@@ -40,6 +44,8 @@ export const exampleDataTwoTeams = [
 export const exampleDataFourTeams = [
   {
     name: "team three",
+    imageUrl:
+      "https://nerdhits.com.br/wp-content/uploads/2021/01/goku-dragon-ball-super-1200x900.jpg",
     points: 250,
     members: [
       {
@@ -54,6 +60,8 @@ export const exampleDataFourTeams = [
   },
   {
     name: "team two",
+    imageUrl:
+      "https://nerdhits.com.br/wp-content/uploads/2021/01/goku-dragon-ball-super-1200x900.jpg",
     points: 300,
     members: [
       {
@@ -68,6 +76,8 @@ export const exampleDataFourTeams = [
   },
   {
     name: "team loser",
+    imageUrl:
+      "https://nerdhits.com.br/wp-content/uploads/2021/01/goku-dragon-ball-super-1200x900.jpg",
     points: 200,
     members: [
       {
@@ -82,6 +92,8 @@ export const exampleDataFourTeams = [
   },
   {
     name: "team winner",
+    imageUrl:
+      "https://nerdhits.com.br/wp-content/uploads/2021/01/goku-dragon-ball-super-1200x900.jpg",
     points: 400,
     members: [
       {
@@ -106,6 +118,8 @@ export const exampleDataFourTeams = [
 
 export const exampleTeamData = {
   name: "team name",
+  imageUrl:
+    "https://nerdhits.com.br/wp-content/uploads/2021/01/goku-dragon-ball-super-1200x900.jpg",
   points: 200,
   members: [
     {
