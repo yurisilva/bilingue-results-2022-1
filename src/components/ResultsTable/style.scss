@@ -15,29 +15,25 @@ body {
     padding: 10px 0px 30px 10px;
     border: 1px solid gray;
     border-radius: 5px 5px 0px 0px;
-    background-image: linear-gradient(ghostwhite, gainsboro);
+    background-image: linear-gradient(ghostwhite, silver);
 
     &-item {
       margin-right: 10px;
     }
 
     :nth-child(1) {
-      background-color: blue;
       width: 40px;
     }
 
     :nth-child(2) {
-      background-color: red;
       width: 300px;
     }
 
     :nth-child(3) {
-      background-color: green;
       width: 60px;
     }
 
     :nth-child(4) {
-      background-color: pink;
       width: 300px;
     }
   }
@@ -52,6 +48,7 @@ body {
   &-row {
     display: flex;
     padding-bottom: 10px;
+    background-image: linear-gradient(ghostwhite, gainsboro);
 
     &:not(:first-child) {
       border-top: 1px solid gray;
@@ -62,23 +59,35 @@ body {
       margin-left: 10px;
     }
 
+    &:nth-child(1) {
+      height: 70px;
+      background-image: linear-gradient(goldenrod, khaki, orange, sienna);
+    }
+
+    &:nth-child(2) {
+      height: 70px;
+      background-image: linear-gradient(darkgray, white, silver, gray);
+    }
+
+    &:nth-child(3) {
+      height: 70px;
+      background-image: linear-gradient(#d2691e, #e0b690, #c97222, #935c29);
+
+    }
+
     :nth-child(1) {
-      background-color: blue;
       width: 40px;
     }
 
     :nth-child(2) {
-      background-color: red;
       width: 300px;
     }
 
     :nth-child(3) {
-      background-color: green;
       width: 60px;
     }
 
     :nth-child(4) {
-      background-color: pink;
       width: 300px;
     }
   }

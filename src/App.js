@@ -1,9 +1,9 @@
 import ResultsTable from "./components/ResultsTable/ResultsTable";
-import { exampleDataTwoTeams } from "./testData";
+import { exampleDataFourTeams } from "./testData";
 import React from "react";
 
 const App = () => {
-  return <ResultsTable data={exampleDataTwoTeams} />;
+  return <ResultsTable data={exampleDataFourTeams} />;
 };
 
 export default App;
