@@ -49,6 +49,7 @@ body {
   &-row {
     display: flex;
     background-image: linear-gradient(ghostwhite, gainsboro);
+    padding: 10px 0px;
 
     &:last-child {
       padding-top: 10px;

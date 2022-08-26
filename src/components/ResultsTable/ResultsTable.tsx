@@ -16,7 +16,6 @@ export type ResultsTableProps = {
 
 const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
   let sortedGroups: ResultsTableProps[] = sortGroupsByScore(data);
-
   return (
     <>
       <div data-testid={"results-table"} className={"results-table"}>
@@ -40,7 +39,7 @@ const ResultsTable = ({ data }: { data: ResultsTableProps[] }) => {
                     className={"results-table-row-crest"}
                     data-testid={"team-crest"}
                   >
-                    <img src={group.imageUrl} />
+                    <img alt={"group-image"} src={group.imageUrl} />
                   </div>
                 )}
                 <div className={"results-table-cell-team-name"}>
